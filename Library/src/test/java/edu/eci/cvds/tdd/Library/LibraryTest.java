@@ -44,6 +44,13 @@ public class LibraryTest {
         assertEquals(repeticiones,2);
     }
 
+    @Test
+    public void addBookTestIfBookIsNull() {
+        Book bookNull = null;
+        boolean result = library.addBook(bookNull);
+        assertFalse(result);
+    }
+
     
 
 
