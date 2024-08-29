@@ -35,5 +35,17 @@ public class LibraryTest {
         assertTrue(respuesta, "The book should be in the library");
     }
 
+    @Test
+    public void addbokTestIfRepeated() {
+        library.addBook(book);
+        library.addBook(book);
+        Map<Book, Integer> books = library.getBooks();
+        int repeticiones = books.get(book);
+        assertEquals(repeticiones,2);
+    }
+
+    
+
+
     
 }
