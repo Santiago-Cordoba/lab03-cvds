@@ -37,17 +37,21 @@ public class Library {
      * @return true if the book was stored false otherwise.
      */
     public boolean addBook(Book book) {
-        if (books.containsKey(book)){
-            int inventario = books.get(book);
-            books.put(book,inventario + 1);
+        if (book == null) {
+            return false; 
         }
-        else{
-            books.put(book,1);
+        try {
+            if (books.containsKey(book)) {
+                int inventario = books.get(book);
+                books.put(book, inventario + 1);
+            } else {
+                books.put(book, 1);
+            }
+            return true;
+        } catch (Exception e) {
+            return false; 
         }
-        
-        return true;
     }
-
 
 
     /**
