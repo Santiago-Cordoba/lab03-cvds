@@ -70,4 +70,14 @@ public class LibraryTest {
         Loan loan = library.loanABook(user.getId(), book.getIsbn());
         assertNull(loan); 
     }
+
+    @Test
+    public void addLoanBookShrinkage () {
+        library.addBook(book);
+        library.addBook(book);
+        library.addUser(user);
+        Loan loan = library.loanABook(user.getId(), book.getIsbn());
+        int number = library.getBooks().get(book);
+        assertEquals(number,1);
+    }
 }
