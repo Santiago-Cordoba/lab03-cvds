@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import edu.eci.cvds.tdd.library.book.Book;
 import edu.eci.cvds.tdd.library.loan.Loan;
@@ -67,6 +68,6 @@ public class LibraryTest {
         Book bookNot = new Book("odise", "charles", "1032");;
         User userNot = new User("campos Doe", "campos123");;
         Loan loan = library.loanABook(user.getId(), book.getIsbn());
-        assertEquals(loan.getBook(), null); 
+        assertNull(loan); 
     }
 }
