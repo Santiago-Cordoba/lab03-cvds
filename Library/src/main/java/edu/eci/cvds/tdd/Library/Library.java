@@ -68,19 +68,21 @@ public class Library {
      *
      * @return The new created loan.
      */
-    public Loan loanABook(String userId, String isbn) {
-        for (Book book : books.keySet()) {
-            if (book.getIsbn().equals(isbn)) {
-                for (User user : users) {
-                    if (user.getId().equals(userId)) {
-                        Loan loan = new Loan(book, user, LocalDateTime.now());
-                        return loan;
+        public Loan loanABook(String userId, String isbn) {
+            for (Book book : books.keySet()) {
+                if (book.getIsbn().equals(isbn) && books.get(book) > 0) {
+                    for (User user : users) {
+                        if (user.getId().equals(userId)) {
+                            Loan loan = new Loan(book, user, LocalDateTime.now());
+                            loans.add(loan);
+                            books.put(book, books.get(book) - 1);
+                            return loan;
+                        }
                     }
                 }
             }
+            return null;
         }
-        return null;
-    }
     
     
   
