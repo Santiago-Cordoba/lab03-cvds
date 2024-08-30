@@ -57,6 +57,7 @@ public class LibraryTest {
         library.addBook(book);
         library.addUser(user);
         Loan loan = library.loanABook(user.getId(), book.getIsbn());
-        assertEquals(loan, Loan); 
+        assertEquals(loan.getBook(), Loan.getBook()); 
+        assertEquals(loan.getUser(), Loan.getUser()); 
     }
 }
