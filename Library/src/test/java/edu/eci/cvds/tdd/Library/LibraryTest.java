@@ -3,6 +3,7 @@ package edu.eci.cvds.tdd.library;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import edu.eci.cvds.tdd.library.book.Book;
 import edu.eci.cvds.tdd.library.loan.Loan;
@@ -23,7 +24,7 @@ public class LibraryTest {
     @BeforeEach
     public void setUp() {
         library = new Library();
-        book = new Book("1002", "Opera", "Homero");
+        book = new Book("opera", "Homero", "1023");
         user = new User("John Doe", "jdoe123");
         Loan = new Loan(book,user,LocalDateTime.now());
     }
@@ -59,5 +60,13 @@ public class LibraryTest {
         Loan loan = library.loanABook(user.getId(), book.getIsbn());
         assertEquals(loan.getBook(), Loan.getBook()); 
         assertEquals(loan.getUser(), Loan.getUser()); 
+    }
+
+    @Test
+    public void addLoanUserAndBookFalse() {
+        Book bookNot = new Book("odise", "charles", "1032");;
+        User userNot = new User("campos Doe", "campos123");;
+        Loan loan = library.loanABook(user.getId(), book.getIsbn());
+        assertEquals(loan.getBook(), null); 
     }
 }

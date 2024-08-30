@@ -1,4 +1,11 @@
 -------------------------------------------------------------------------------
 Test set: edu.eci.cvds.tdd.library.LibraryTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.115 s -- in edu.eci.cvds.tdd.library.LibraryTest
+Tests run: 5, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.153 s <<< FAILURE! -- in edu.eci.cvds.tdd.library.LibraryTest
+edu.eci.cvds.tdd.library.LibraryTest.addLoanUserAndBookFalse -- Time elapsed: 0.070 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "edu.eci.cvds.tdd.library.loan.Loan.getBook()" because "loan" is null
+	at edu.eci.cvds.tdd.library.LibraryTest.addLoanUserAndBookFalse(LibraryTest.java:70)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
