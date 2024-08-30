@@ -10,21 +10,22 @@ import edu.eci.cvds.tdd.library.user.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.time.LocalDateTime;
 import java.util.Map;
 
 public class LibraryTest {
 
     private Library library;
     private Book book;
+    private User user;
+    private Loan Loan;
 
     @BeforeEach
     public void setUp() {
         library = new Library();
-        book = new Book("10002", "Homero", "Opera"); // Corrige el orden de los parámetros si es necesario
+        book = new Book("1002", "Opera", "Homero");
+        user = new User("John Doe", "jdoe123");
+        Loan = new Loan(book,user,LocalDateTime.now());
     }
 
     @Test
@@ -36,12 +37,12 @@ public class LibraryTest {
     }
 
     @Test
-    public void addbokTestIfRepeated() {
+    public void addBookTestIfRepeated() {
         library.addBook(book);
         library.addBook(book);
         Map<Book, Integer> books = library.getBooks();
         int repeticiones = books.get(book);
-        assertEquals(repeticiones,2);
+        assertEquals(2, repeticiones);
     }
 
     @Test
@@ -51,8 +52,11 @@ public class LibraryTest {
         assertFalse(result);
     }
 
-    
-
-
-    
+    @Test
+    public void addLoan() {
+        library.addBook(book);
+        library.addUser(user);
+        Loan loan = library.loanABook(user.getId(), book.getIsbn());
+        assertEquals(loan, Loan); 
+    }
 }

@@ -11,6 +11,15 @@ public class Loan {
     private LocalDateTime loanDate;
     private LoanStatus status;
     private LocalDateTime returnDate;
+    
+
+    public Loan(Book book, User user, LocalDateTime loanDate) {
+        this.book = book;
+        this.user = user;
+        this.loanDate = loanDate;
+        this.status = LoanStatus.ACTIVE; 
+        this.returnDate = null; 
+    }
 
     public Book getBook() {
         return book;
