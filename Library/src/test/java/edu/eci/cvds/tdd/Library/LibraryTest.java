@@ -2,6 +2,7 @@ package edu.eci.cvds.tdd.library;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import edu.eci.cvds.tdd.library.book.Book;
 import edu.eci.cvds.tdd.library.loan.Loan;
@@ -37,6 +38,7 @@ public class LibraryTest {
         library.returnLoan(loan);
         List<Loan> loans = library.getLoans();
         assertTrue(loans.contains(loan));
+        assertNotNull(library.returnLoan(loan));
     }
 
 
