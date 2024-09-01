@@ -107,4 +107,8 @@ public class Library {
         return loans;
     }
 
+    public Map<Book,Integer> getBooks(){
+        return books;
+    }
+
 }
