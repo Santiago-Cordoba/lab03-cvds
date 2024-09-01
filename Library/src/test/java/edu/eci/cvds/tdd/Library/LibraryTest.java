@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import edu.eci.cvds.tdd.library.book.Book;
 import edu.eci.cvds.tdd.library.loan.Loan;
+import edu.eci.cvds.tdd.library.loan.LoanStatus;
 import edu.eci.cvds.tdd.library.user.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -55,6 +56,18 @@ public class LibraryTest {
         Map<Book, Integer> books = library.getBooks();
         int cantiadadLibros = books.get(book);
         assertEquals(1, cantiadadLibros);
+    }
+
+    /**
+     * Check the status of loan
+     */
+    @Test 
+    public void returnLoanStatusShouldBeReturned(){
+        library.addBook(book);
+        library.addUser(user);
+        Loan loan = library.loanABook(user.getId(), book.getIsbn());
+        library.returnLoan(loan);
+        assertEquals(LoanStatus.RETURNED,loan.getStatus());
     }
 
 
