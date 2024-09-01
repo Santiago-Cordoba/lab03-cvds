@@ -11,6 +11,8 @@ import edu.eci.cvds.tdd.library.loan.LoanStatus;
 import edu.eci.cvds.tdd.library.user.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.beans.Transient;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
@@ -68,6 +70,18 @@ public class LibraryTest {
         Loan loan = library.loanABook(user.getId(), book.getIsbn());
         library.returnLoan(loan);
         assertEquals(LoanStatus.RETURNED,loan.getStatus());
+    }
+
+    /**
+     * check that the date is updated in returnLoan
+     */
+    @Test
+    public void returnLoanActualDate(){
+        library.addBook(book);
+        library.addUser(user);
+        Loan loan = library.loanABook(user.getId(), book.getIsbn());
+        library.returnLoan(loan);
+        assertEquals(LocalDateTime.now(),loan.getLoanDate());
     }
 
 

@@ -96,6 +96,7 @@ public class Library {
             Book book = loan.getBook();
             books.put(book, books.get(book) + 1);
             loan.changeStatus();
+            loan.setReturnDate(LocalDateTime.now());
             return loan;
         }
         return null;
