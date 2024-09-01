@@ -93,6 +93,8 @@ public class Library {
 
     public Loan returnLoan(Loan loan) {
         if(loans.contains(loan)){
+            Book book = loan.getBook();
+            books.put(book, books.get(book) + 1);
             return loan;
         }
         return null;
