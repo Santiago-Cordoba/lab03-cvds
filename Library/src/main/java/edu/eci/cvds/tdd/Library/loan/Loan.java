@@ -48,6 +48,14 @@ public class Loan {
         return status;
     }
 
+    public void changeStatus(){
+        if(status == LoanStatus.ACTIVE){
+            status = LoanStatus.RETURNED;
+        }else{
+            status = LoanStatus.ACTIVE;
+        }
+    }
+
     public void setStatus(LoanStatus status) {
         this.status = status;
     }

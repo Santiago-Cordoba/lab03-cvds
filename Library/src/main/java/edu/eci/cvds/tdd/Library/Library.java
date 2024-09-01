@@ -95,6 +95,7 @@ public class Library {
         if(loans.contains(loan)){
             Book book = loan.getBook();
             books.put(book, books.get(book) + 1);
+            loan.changeStatus();
             return loan;
         }
         return null;
