@@ -11,7 +11,6 @@ public class Loan {
     private LocalDateTime loanDate;
     private LoanStatus status;
     private LocalDateTime returnDate;
-    
 
     public Loan(Book book, User user, LocalDateTime loanDate) {
         this.book = book;
@@ -47,6 +46,14 @@ public class Loan {
 
     public LoanStatus getStatus() {
         return status;
+    }
+
+    public void changeStatus(){
+        if(status == LoanStatus.ACTIVE){
+            status = LoanStatus.RETURNED;
+        }else{
+            status = LoanStatus.ACTIVE;
+        }
     }
 
     public void setStatus(LoanStatus status) {
