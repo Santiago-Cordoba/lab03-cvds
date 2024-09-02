@@ -2,32 +2,25 @@ package edu.eci.cvds.tdd.library;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-<<<<<<< HEAD
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import edu.eci.cvds.tdd.library.book.Book;
 import edu.eci.cvds.tdd.library.loan.Loan;
 import edu.eci.cvds.tdd.library.loan.LoanStatus;
-=======
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 import edu.eci.cvds.tdd.library.book.Book;
 import edu.eci.cvds.tdd.library.loan.Loan;
->>>>>>> main
 import edu.eci.cvds.tdd.library.user.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-<<<<<<< HEAD
 import java.beans.Transient;
 import java.time.LocalDateTime;
 import java.util.List;
-=======
-import java.time.LocalDateTime;
->>>>>>> main
 import java.util.Map;
 
 public class LibraryTest {
@@ -45,7 +38,6 @@ public class LibraryTest {
         Loan = new Loan(book,user,LocalDateTime.now());
     }
 
-<<<<<<< HEAD
     /**
      * Check that the loan exist
      */
@@ -100,7 +92,6 @@ public class LibraryTest {
 
 
     // Puedes agregar más pruebas para los otros métodos a medida que los implementes.
-=======
     @Test
     public void testAddBook() {
         library.addBook(book);
@@ -151,5 +142,4 @@ public class LibraryTest {
         int number = library.getBooks().get(book);
         assertEquals(number,1);
     }
->>>>>>> main
 }

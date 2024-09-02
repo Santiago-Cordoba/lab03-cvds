@@ -4,18 +4,11 @@ import edu.eci.cvds.tdd.library.book.Book;
 import edu.eci.cvds.tdd.library.loan.Loan;
 import edu.eci.cvds.tdd.library.user.User;
 
-<<<<<<< HEAD
-=======
-import java.time.LocalDateTime;
->>>>>>> main
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-<<<<<<< HEAD
 import java.time.LocalDateTime;
-=======
->>>>>>> main
 
 /**
  * Library responsible for manage the loans and the users.
@@ -31,13 +24,9 @@ public class Library {
         books = new HashMap<>();
         loans = new ArrayList<>();
     }
-<<<<<<< HEAD
-
-=======
     public Map<Book, Integer> getBooks(){
         return books;
     }
->>>>>>> main
     /**
      * Adds a new {@link edu.eci.cvds.tdd.library.book.Book} into the system, the book is store in a Map that contains
      * the {@link edu.eci.cvds.tdd.library.book.Book} and the amount of books available, if the book already exist the
@@ -65,10 +54,6 @@ public class Library {
         }
     }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> main
     /**
      * This method creates a new loan with for the User identify by the userId and the book identify by the isbn,
      * the loan should be store in the list of loans, to successfully create a loan is required to validate that the
@@ -82,11 +67,7 @@ public class Library {
      *
      * @return The new created loan.
      */
-<<<<<<< HEAD
-    public Loan loanABook(String userId, String isbn) {
-=======
         public Loan loanABook(String userId, String isbn) {
->>>>>>> main
             for (Book book : books.keySet()) {
                 if (book.getIsbn().equals(isbn) && books.get(book) > 0) {
                     for (User user : users) {
@@ -101,13 +82,6 @@ public class Library {
             }
             return null;
         }
-<<<<<<< HEAD
-=======
-    
-    
-  
-
->>>>>>> main
 
     /**
      * This method return a loan, meaning that the amount of books should be increased by 1, the status of the Loan
@@ -118,7 +92,6 @@ public class Library {
      *
      * @return the loan with the RETURNED status.
      */
-<<<<<<< HEAD
 
     public Loan returnLoan(Loan loan) {
         if(loans.contains(loan)){
@@ -132,26 +105,14 @@ public class Library {
     }
 
 
-=======
-    public Loan returnLoan(Loan loan) {
-        //TODO Implement the login of loan a book to a user based on the UserId and the isbn.
-        return null;
-    }
-
->>>>>>> main
     public boolean addUser(User user) {
         return users.add(user);
     }
 
-<<<<<<< HEAD
     public List<Loan> getLoans(){
         return loans;
     }
 
-    public Map<Book,Integer> getBooks(){
-        return books;
-    }
 
-=======
->>>>>>> main
+
 }
