@@ -91,7 +91,7 @@ public class LibraryTest {
     }
 
 
-    // Puedes agregar más pruebas para los otros métodos a medida que los implementes.
+    //Puedes agregar más pruebas para los otros métodos a medida que los implementes.
     @Test
     public void testAddBook() {
         library.addBook(book);
@@ -142,4 +142,6 @@ public class LibraryTest {
         int number = library.getBooks().get(book);
         assertEquals(number,1);
     }
+
+    //Prueba
 }
