@@ -24,8 +24,16 @@ public class Book {
     }
 
     @Override
-    public boolean equals(Object obj) {
-<span class="fc" id="L28">        return isbn.equals(((Book)obj).isbn);</span>
+public boolean equals(Object obj) {
+<span class="fc bfc" id="L28" title="All 2 branches covered.">    if (this == obj) {</span>
+<span class="fc" id="L29">        return true;</span>
     }
+<span class="fc bfc" id="L31" title="All 4 branches covered.">    if (obj == null || getClass() != obj.getClass()) {</span>
+<span class="fc" id="L32">        return false;</span>
+    }
+<span class="fc" id="L34">    Book other = (Book) obj;</span>
+<span class="fc" id="L35">    return isbn.equals(other.isbn);</span>
+}
+
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

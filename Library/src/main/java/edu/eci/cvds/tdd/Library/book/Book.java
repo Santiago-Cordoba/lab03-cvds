@@ -24,7 +24,15 @@ public class Book {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        return isbn.equals(((Book)obj).isbn);
+public boolean equals(Object obj) {
+    if (this == obj) {
+        return true;
     }
+    if (obj == null || getClass() != obj.getClass()) {
+        return false;
+    }
+    Book other = (Book) obj;
+    return isbn.equals(other.isbn);
+}
+
 }

@@ -67,21 +67,24 @@ public class Library {
      *
      * @return The new created loan.
      */
-        public Loan loanABook(String userId, String isbn) {
-            for (Book book : books.keySet()) {
-                if (book.getIsbn().equals(isbn) && books.get(book) > 0) {
-                    for (User user : users) {
-                        if (user.getId().equals(userId)) {
-                            Loan loan = new Loan(book, user, LocalDateTime.now());
-                            loans.add(loan);
-                            books.put(book, books.get(book) - 1);
-                            return loan;
-                        }
+    public Loan loanABook(String userId, String isbn) {
+        for (Map.Entry<Book, Integer> entry : books.entrySet()) {
+            Book book = entry.getKey();
+            int availableCopies = entry.getValue();
+    
+            if (book.getIsbn().equals(isbn) && availableCopies > 0) {
+                for (User user : users) {
+                    if (user.getId().equals(userId)) {
+                        Loan loan = new Loan(book, user, LocalDateTime.now());
+                        loans.add(loan);
+                        books.put(book, availableCopies - 1);
+                        return loan;
                     }
                 }
             }
-            return null;
         }
+        return null;
+    }
 
     /**
      * This method return a loan, meaning that the amount of books should be increased by 1, the status of the Loan

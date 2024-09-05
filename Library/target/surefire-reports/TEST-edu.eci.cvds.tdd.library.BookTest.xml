@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="edu.eci.cvds.tdd.library.LibraryTest" time="0.029" tests="10" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="edu.eci.cvds.tdd.library.BookTest" time="0.058" tests="5" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -58,14 +58,9 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="addLoanUserAndBookFalse" classname="edu.eci.cvds.tdd.library.LibraryTest" time="0.012"/>
-  <testcase name="testAddBook" classname="edu.eci.cvds.tdd.library.LibraryTest" time="0.001"/>
-  <testcase name="addLoan" classname="edu.eci.cvds.tdd.library.LibraryTest" time="0.003"/>
-  <testcase name="addLoanBookShrinkage" classname="edu.eci.cvds.tdd.library.LibraryTest" time="0.001"/>
-  <testcase name="addBookTestIfBookIsNull" classname="edu.eci.cvds.tdd.library.LibraryTest" time="0.001"/>
-  <testcase name="returnLoanActualDate" classname="edu.eci.cvds.tdd.library.LibraryTest" time="0.001"/>
-  <testcase name="returnLoanStatusShouldBeReturned" classname="edu.eci.cvds.tdd.library.LibraryTest" time="0.001"/>
-  <testcase name="returnLoanNumberOfBookIncrement" classname="edu.eci.cvds.tdd.library.LibraryTest" time="0.0"/>
-  <testcase name="returnLoan" classname="edu.eci.cvds.tdd.library.LibraryTest" time="0.001"/>
-  <testcase name="addBookTestIfRepeated" classname="edu.eci.cvds.tdd.library.LibraryTest" time="0.001"/>
+  <testcase name="testEqualsDifferentISBN" classname="edu.eci.cvds.tdd.library.BookTest" time="0.02"/>
+  <testcase name="testEqualsDifferentClass" classname="edu.eci.cvds.tdd.library.BookTest" time="0.002"/>
+  <testcase name="testEqualsNull" classname="edu.eci.cvds.tdd.library.BookTest" time="0.001"/>
+  <testcase name="testEqualsSameISBN" classname="edu.eci.cvds.tdd.library.BookTest" time="0.003"/>
+  <testcase name="testEqualsSameObject" classname="edu.eci.cvds.tdd.library.BookTest" time="0.001"/>
 </testsuite>

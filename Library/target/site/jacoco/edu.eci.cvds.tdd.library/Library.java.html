@@ -67,21 +67,24 @@ public class Library {
      *
      * @return The new created loan.
      */
-        public Loan loanABook(String userId, String isbn) {
-<span class="fc bfc" id="L71" title="All 2 branches covered.">            for (Book book : books.keySet()) {</span>
-<span class="pc bpc" id="L72" title="2 of 4 branches missed.">                if (book.getIsbn().equals(isbn) &amp;&amp; books.get(book) &gt; 0) {</span>
-<span class="pc bpc" id="L73" title="1 of 2 branches missed.">                    for (User user : users) {</span>
-<span class="pc bpc" id="L74" title="1 of 2 branches missed.">                        if (user.getId().equals(userId)) {</span>
-<span class="fc" id="L75">                            Loan loan = new Loan(book, user, LocalDateTime.now());</span>
-<span class="fc" id="L76">                            loans.add(loan);</span>
-<span class="fc" id="L77">                            books.put(book, books.get(book) - 1);</span>
-<span class="fc" id="L78">                            return loan;</span>
-                        }
-<span class="nc" id="L80">                    }</span>
-                }
-<span class="nc" id="L82">            }</span>
-<span class="fc" id="L83">            return null;</span>
-        }
+    public Loan loanABook(String userId, String isbn) {
+<span class="fc bfc" id="L71" title="All 2 branches covered.">        for (Map.Entry&lt;Book, Integer&gt; entry : books.entrySet()) {</span>
+<span class="fc" id="L72">            Book book = entry.getKey();</span>
+<span class="fc" id="L73">            int availableCopies = entry.getValue();</span>
+    
+<span class="pc bpc" id="L75" title="2 of 4 branches missed.">            if (book.getIsbn().equals(isbn) &amp;&amp; availableCopies &gt; 0) {</span>
+<span class="pc bpc" id="L76" title="1 of 2 branches missed.">                for (User user : users) {</span>
+<span class="pc bpc" id="L77" title="1 of 2 branches missed.">                    if (user.getId().equals(userId)) {</span>
+<span class="fc" id="L78">                        Loan loan = new Loan(book, user, LocalDateTime.now());</span>
+<span class="fc" id="L79">                        loans.add(loan);</span>
+<span class="fc" id="L80">                        books.put(book, availableCopies - 1);</span>
+<span class="fc" id="L81">                        return loan;</span>
+                    }
+<span class="nc" id="L83">                }</span>
+            }
+<span class="nc" id="L85">        }</span>
+<span class="fc" id="L86">        return null;</span>
+    }
 
     /**
      * This method return a loan, meaning that the amount of books should be increased by 1, the status of the Loan
@@ -94,23 +97,23 @@ public class Library {
      */
 
     public Loan returnLoan(Loan loan) {
-<span class="pc bpc" id="L97" title="1 of 2 branches missed.">        if(loans.contains(loan)){</span>
-<span class="fc" id="L98">            Book book = loan.getBook();</span>
-<span class="fc" id="L99">            books.put(book, books.get(book) + 1);</span>
-<span class="fc" id="L100">            loan.changeStatus();</span>
-<span class="fc" id="L101">            loan.setReturnDate(LocalDateTime.now());</span>
-<span class="fc" id="L102">            return loan;</span>
+<span class="pc bpc" id="L100" title="1 of 2 branches missed.">        if(loans.contains(loan)){</span>
+<span class="fc" id="L101">            Book book = loan.getBook();</span>
+<span class="fc" id="L102">            books.put(book, books.get(book) + 1);</span>
+<span class="fc" id="L103">            loan.changeStatus();</span>
+<span class="fc" id="L104">            loan.setReturnDate(LocalDateTime.now());</span>
+<span class="fc" id="L105">            return loan;</span>
         }
-<span class="nc" id="L104">        return null;</span>
+<span class="nc" id="L107">        return null;</span>
     }
 
 
     public boolean addUser(User user) {
-<span class="fc" id="L109">        return users.add(user);</span>
+<span class="fc" id="L112">        return users.add(user);</span>
     }
 
     public List&lt;Loan&gt; getLoans(){
-<span class="fc" id="L113">        return loans;</span>
+<span class="fc" id="L116">        return loans;</span>
     }
 
 
